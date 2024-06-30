@@ -1,13 +1,12 @@
+; Allows the user to press a key from a seat, turning on or off a value. Won't get flipped endlessly if the button is held
+; With an example of use in a headlight setup
 
-; Toggleable values, with an example of use in a headlight setup
 ; define toggle values
 var $headlight = ""
 
-; set them up
+; set them up, optio
 init
-	$headlight.on = 0
-	$headlight.newclick = 0 ; the new and old are checked to see if the user presses the key, not just held from previous tick
-	$headlight.oldclick = 0
+	$headlight.on = 0 ; set starting value, optional
 	$headlight.brightness = 100 ; not part of the toggle check, but a value defined by you for whatever
 
 ; update each tick, toggles if the user has pressed a corresponding button from the seat
@@ -25,4 +24,4 @@ function @toggleCheck($object:text,$seatchannel:number):text
 ; example of referencing the toggle value
 ; in e.g. tick or update
 	if $headlight.on
-		@setLight("headlight",$headlight.on,$headlight.Power*$highbeam.Brightness)
+		@setLight("headlight",$headlight.on,$headlight.brightness)
