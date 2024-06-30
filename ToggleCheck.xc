@@ -4,9 +4,9 @@
 ; define toggle values
 var $headlight = ""
 
-; set them up, optio
+; set them up, optional
 init
-	$headlight.on = 0 ; set starting value, optional
+	$headlight.on = 0 ; set starting value, if not set, defaults to off (0)
 	$headlight.brightness = 100 ; not part of the toggle check, but a value defined by you for whatever
 
 ; update each tick, toggles if the user has pressed a corresponding button from the seat
