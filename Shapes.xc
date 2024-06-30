@@ -12,8 +12,8 @@ init
 	
 ; example of calling one of the methods below
 tick
-	@drawBattery($dashCfgDials,$battCharge, $battX, $battY, $battW, $battH, "Left")
-
+	@drawBattery($dashCfgDials,$battCharge, $battX, $battY, $battW, $battH, "Left") ; draws to the first screen on the dash
+	@drawTriangle($dashCfgGPS,10,50,30,green) ; draws to the second screen on the dash
 
 ; standalone/static methods, can be put in separate file
 
@@ -34,8 +34,3 @@ function @drawBattery($dashCfg:text, $charge:number, $X:number, $Y:number, $W:nu
 		$screen.draw_rect($X+1,$Y+1,$X+$W-1,$Y+$H-1,0,red) ; battery empty, draw red
 	if size($text) > 0
 		$screen.write($X+5,$Y+(($H-$screen.char_h)/2),white,$text)
-
-; example of referencing the toggle value
-update
-	if $headlight.on
-		@setLight("headlight",$headlight.on,$headlight.Power*$highbeam.Brightness)

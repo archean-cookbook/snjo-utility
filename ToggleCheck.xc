@@ -21,3 +21,8 @@ function @toggleCheck($object:text,$seatchannel:number):text
 		;print("toggle",$object.on)
 	$object.oldclick = $object.newclick
 	return $object
+
+; example of referencing the toggle value
+; in e.g. tick or update
+	if $headlight.on
+		@setLight("headlight",$headlight.on,$headlight.Power*$highbeam.Brightness)
