@@ -6,9 +6,9 @@ function @hsv_to_rgb($h:number, $s:number, $v:number) : number
 	var $rgb = 0
 	$h %= 360
 	var $c = $v * $s
-	var $x = $c * (1 - abs($h / 60) % 2 - 1)
+	var $x = $c * (1 - abs(($h / 60) % 2 - 1))
 	var $m = $v - $c
-	
+
 	if $h < 60
 		$rgb = color(($c + $m) * 255, ($x + $m) * 255, ($m) * 255)
 	elseif $h < 120
@@ -21,8 +21,8 @@ function @hsv_to_rgb($h:number, $s:number, $v:number) : number
 		$rgb = color(($x + $m) * 255, ($m) * 255, ($c + $m) * 255)
 	elseif $h <= 360
 		$rgb = color(($c + $m) * 255, ($m) * 255, ($x + $m) * 255)
-
 	return $rgb
+
 ; -------------------------------------------------
 
 function @ColorValue($color:number):number
