@@ -1,4 +1,5 @@
-; these functions use $dashCfg to determine the screen to draw to. If the $dashCfg is set up in the main file, these functions can ble placed in a separate file and work like static methods
+; these functions use $dashCfg to determine the screen to draw to. If the $dashCfg is set up in the main file,
+; the draw functions can ble placed in a separate file and work like static methods
 
 ; in main file, set up dashConfigs
 var $dashCfgDials = ""
@@ -34,3 +35,5 @@ function @drawBattery($dashCfg:text, $charge:number, $X:number, $Y:number, $W:nu
 		$screen.draw_rect($X+1,$Y+1,$X+$W-1,$Y+$H-1,0,red) ; battery empty, draw red
 	if size($text) > 0
 		$screen.write($X+5,$Y+(($H-$screen.char_h)/2),white,$text)
+		
+
