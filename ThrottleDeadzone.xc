@@ -16,7 +16,7 @@
 ;   ; DRAW THE THROTTLE TO SCREEN
 ;	$screen.@drawThrottle($throttle,10,10,20,80,white,green,gray,orange)
 ;
-function @updateThrottle() ; used in update loop
+function @updateThrottle($screen:screen) ; used in update loop, expect $throttle to already be defined.
 	var $throttleClick = @drawThrottle($screen,$throttle,220,10,30,220,white,green,gray,orange)
 	if $throttleClick.clicked
 		$throttle.value = $throttleClick.value:number
