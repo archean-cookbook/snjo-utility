@@ -99,4 +99,18 @@ function @drawChippy($screen:screen,$cx:number,$cy:number)
 	$screen.draw_triangle($cblx+5,$cbly-1,$cblx+5,$cbly+20,$cblx+15,$cbly-1,black,color(10,30,10))
 	$screen.draw_triangle($cblx+26,$cbly-3,$cblx+27,$cbly+20,$cblx+35,$cbly-3,black,color(10,30,10))
 	; end Chippy, please!
-			
+
+function @drawHeart($screen:screen,$X:number,$Y:number,$filled:number)
+	var $lineColor = red
+	if $filled
+		$screen.draw_rect($X+1,$Y+1,$X+8,$Y+6,0,pink)
+		$screen.draw_rect($X+3,$Y+6,$X+6,$Y+8,0,pink)
+	$screen.draw_line($X+1,$Y,$X+4,$Y,$lineColor)
+	$screen.draw_point($X+4,$Y+1,$lineColor)
+	$screen.draw_line($X+5,$Y,$X+8,$Y,$lineColor)
+	
+	$screen.draw_line($X,$Y+1,$X,$Y+5,$lineColor)
+	$screen.draw_line($X+8,$Y+1,$X+8,$Y+5,$lineColor)
+
+	$screen.draw_line($X+1,$Y+5,$X+5,$Y+9,$lineColor)
+	$screen.draw_line($X+7,$Y+5,$X+3,$Y+9,$lineColor)
