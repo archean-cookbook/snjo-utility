@@ -7,8 +7,11 @@
 
 ; standalone/static methods, can be put in separate file
 
-function @drawTriangle($screen:screen,$X:number,$Y:number,$size:number,$color:number)
-	$screen.draw_triangle($X+$size/2,$Y, $X,$Y+$size, $X+$size,$Y+$size,$color)
+function @drawTriangleUp($screen:screen,$X:number,$Y:number,$size:number,$lineColor:number,$fillColor:number)
+	$screen.draw_triangle($X+$size/2,$Y, $X,$Y+$size, $X+$size,$Y+$size,$lineColor,$fillColor)
+	
+function @drawTriangleDown($screen:screen,$X:number,$Y:number,$size:number,$lineColor:number,$fillColor:number)
+	$screen.draw_triangle($X+$size/2,$Y+$size, $X,$Y, $X+$size,$Y,$lineColor,$fillColor)
 
 function @drawBattery($screen:screen, $charge:number, $X:number, $Y:number, $W:number, $H:number, $text:text)
 	$screen.draw_rect($X-3,$Y+4,$X+1,$Y+$H-4,white,gray) ; nub
