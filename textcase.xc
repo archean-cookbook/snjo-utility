@@ -1,9 +1,9 @@
 const $alphabetLower = "abcdefghijklmnopqrstuvwxyzæøå" ; all the lower case letters
 const $alphabetUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ" ; all the upper case letters
 const $alphabet = $alphabetLower & $alphabetUpper; all lower case in the first half, and the exact same list in upper case in the last half
-const $alphabetSize = 29 ; increase this if you add more characters from your language
 
 function @toLower($phrase:text):text ; input $text, a phrase. outputs the phrase in lower case
+	var $alphabetSize = size($alphabetLower)
 	var $length = size($phrase) ; the number of chars in the phrase
 	var $outPhrase = "" ; initializing the phrase that will be returned
 	repeat $length ($i) ; loop through the entire text phrase
@@ -16,6 +16,7 @@ function @toLower($phrase:text):text ; input $text, a phrase. outputs the phrase
 	return $outPhrase ; the finished phrase
 		
 function @toUpper($phrase:text):text ; input $text, a phrase. outputs the phrase in UPPER case
+	var $alphabetSize = size($alphabetLower)
 	var $length = size($phrase)
 	var $outPhrase = ""
 	repeat $length ($i)
@@ -32,3 +33,4 @@ init
 	print("Sample text: " & $sampleText)
 	print("To upper case: " & @toUpper($sampleText)
 	print("To lower case: " & @toLower($sampleText)
+	
