@@ -2,7 +2,7 @@
 #	@drawBattery($screen,$battCharge, $battX, $battY, $battW, $battH, "Left") ; draws to the first screen on the dash
 #	@drawTriangle($screen,10,50,30,green) ; draws to the second screen on the dash
 ; or you can access them via dot extension, so instead of naming the screen as an argument, you can flip it around for a cleaner look:
-#	$_screen.@drawTriangle(10,50,30,green)
+#	$screen.@drawTriangle(10,50,30,green)
 ; note that this method is not valid in assignments, and the system will inform you of this. In that case, use the first method.
 
 
@@ -47,7 +47,7 @@ function @drawSpeechBubble($_screen:screen,$X:number,$Y:number,$width:number,$he
 		$tailLength = $height/2
 	if $tailWidth == 0
 		$tailWidth = $radius
-	@drawRoundedRectangle($screen,$X,$Y,$width,$height,$radius,$lineColor,$fillColor)
+	@drawRoundedRectangle($_screen,$X,$Y,$width,$height,$radius,$lineColor,$fillColor)
 	$_screen.draw_triangle($X+$radius,$bottom-1, $X+$radius+$tailWidth,$bottom-1, $X+$radius/2,$bottom+$tailLength,0,$fillColor)
 	$_screen.draw_line($X+$radius,$bottom-1,$X+$radius/2,$bottom+$tailLength,$lineColor)
 	$_screen.draw_line($X+$radius+$tailWidth,$bottom,$X+$radius/2,$bottom+$tailLength,$lineColor)
