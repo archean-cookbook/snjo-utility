@@ -8,7 +8,6 @@ function @isNumber($textNumber:text):number
 	// 	return false ; not a number, too small or too large
 
 	var $allowed = "0123456789.-"
-	var $textLength = size($textNumber)
 	var $numDot = 0 ; counts if more than one decimal point exists, indicating NaN
 	repeat $textLength ($i)
 		var $char = substring($textNumber,$i,1)
