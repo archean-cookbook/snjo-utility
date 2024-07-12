@@ -26,9 +26,8 @@ function @isNumber($textNumber:text):number
 
 // ------------------ EXAMPLES BELOW, not needed in your code --------------------------
 
-function @exampleConvert($textExample:text,$exampleNumber:number)
+function @exampleConvert($textExample:text)
 	print("")
-	print(text("Example {}",$exampleNumber)
 	print(text("Number as text : '{}'",$textExample)
 	if @isNumber($textExample):text
 		var $conv = $textExample:number
@@ -37,7 +36,7 @@ function @exampleConvert($textExample:text,$exampleNumber:number)
 		print("Text is a not a number")
 
 ; Test Output
-; using the function: @exampleConvert("ABC",1) etc.
+; using the function: @exampleConvert("ABC") etc.
 ;
 ; Example 1, plain text
 ; Number as text : 'ABC'
