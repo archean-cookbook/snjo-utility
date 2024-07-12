@@ -28,9 +28,10 @@ function @toUpper($phrase:text):text ; input $text, a phrase. outputs the phrase
 		$outPhrase &= $outChar
 	return $outPhrase
 
-init
-	var $sampleText = "The quick brown Fox jumped OVER the lazy Dog! 123./# UPPER lower"
-	print("Sample text: " & $sampleText)
-	print("To upper case: " & @toUpper($sampleText)
-	print("To lower case: " & @toLower($sampleText)
+// EXAMPLE USE --------------------------
+// init
+//	var $sampleText = "The quick brown Fox jumped OVER the lazy Dog! 123./# UPPER lower"
+//	print("Sample text: " & $sampleText)
+//	print("To upper case: " & @toUpper($sampleText)
+//	print("To lower case: " & @toLower($sampleText)
 	
