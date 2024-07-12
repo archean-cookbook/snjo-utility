@@ -1,11 +1,11 @@
 
 function @isNumber($textNumber:text):number
-	; loops through the text until a disallowed character is found, then return false. If no errors are found, return true
+	// loops through the text until a disallowed character is found, then return false. If no errors are found, return true
 
 	var $textLength = size($textNumber)
-	; Accepts values of zero length as 0, and no limit to upper length. Add checks for that if needed:
-	; if $textLength < 1 || $textLenght > 50	; 50 digits shouldn't be possible in 64-big floating point... right?
-	; 	return false ; not a number, too small or too large
+	// Accepts values of zero length as 0, and no limit to upper length. Add checks for that if needed:
+	// if $textLength < 1 || $textLenght > 50	; 50 digits shouldn't be possible in 64-big floating point... right?
+	// 	return false ; not a number, too small or too large
 
 	var $allowed = "0123456789.-"
 	var $textLength = size($textNumber)
