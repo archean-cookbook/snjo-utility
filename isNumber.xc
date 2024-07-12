@@ -19,6 +19,8 @@ function @isNumber($textNumber:text):number
 	; no disallowed chars, return true
 	return 1
 
+; ------------------ EXAMPLES BELOW, not needed in your code --------------------------
+
 function @exampleConvert($textExample:text,$exampleNumber:number)
 	print("")
 	print(text("Example {}",$exampleNumber)
@@ -29,10 +31,29 @@ function @exampleConvert($textExample:text,$exampleNumber:number)
 	else
 		print("Text is a not a number")
 
-init
-	@exampleConvert("ABC",1)
-	@exampleConvert(".123",2)
-	@exampleConvert("0.12.3",3)
-	@exampleConvert("-5",4)
-	@exampleConvert("5-",5)
+; Test Output
+; @exampleConvert("ABC",1)
+; Example 1
+; Number as text : 'ABC'
+; Text is a not a number
+; 
+; Example 2
+; @exampleConvert(".123",2)
+; Number as text : '.123'
+; Text is a number: 0.123
+;
+; Example 3
+; @exampleConvert("0.12.3",3)
+; Number as text : '0.12.3'
+; Text is a not a number
+;
+; Example 4
+; @exampleConvert("-5",4)
+; Number as text : '-5'
+; Text is a number: -5
+; 
+; Example 5
+; @exampleConvert("5-",5)
+; Number as text : '5-'
+; Text is a not a number
 	
