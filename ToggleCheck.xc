@@ -1,4 +1,5 @@
 ; Allows the user to press a key from a seat, turning on or off a value. Won't get flipped endlessly if the button is held
+; This code assumes that the seat is NOT set to smooth controls. If so, some small rewrite is needed.
 ; With an example of use in a headlight setup
 
 ; define toggle values
