@@ -10,6 +10,8 @@ function @toggleCheck($object:text,$seatchannel:number):text
 	$object.oldclick = $object.newclick
 	return $object
 
+; ----------- EXAMPLE --------------------
+
 ; define toggle values, as global variables at the top of the file
 ; var $headlight = ""
 
