@@ -1,3 +1,5 @@
+; Incomplete, is only showing one of the values
+
 var $screen = screen
 array $values : number
 var $sensor = 0
