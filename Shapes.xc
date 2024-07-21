@@ -12,6 +12,29 @@ function @drawTriangleUp($_screen:screen,$X:number,$Y:number,$size:number,$lineC
 function @drawTriangleDown($_screen:screen,$X:number,$Y:number,$size:number,$lineColor:number,$fillColor:number)
 	$_screen.draw_triangle($X+$size/2,$Y+$size, $X,$Y, $X+$size,$Y,$lineColor,$fillColor)
 
+function @rotatedTriangleRad($_screen:screen,$_x:number,$_y:number,$_radians:number,$_height:number,$_width:number,$_lineColor:number,$_fillColor:number)
+	var $_angle = $_radians - (pi/2) ; make 0 degrees point up
+	var $bLx = cos($_angle+0.5*pi) * $_width
+	var $bLy = sin($_angle+0.5*pi) * $_width
+	var $bRx = cos($_angle-0.5*pi) * $_width
+	var $bRy = sin($_angle-0.5*pi) * $_width
+	var $tipX = cos($_angle) * $_height ;* -1
+	var $tipY = sin($_angle) * $_height ;* -1
+	$_screen.draw_triangle($_x+$bLx, $_y+$bLy,   $_x+$bRx, $_y+$bRy,   $_x+$tipX, $_y+$tipY, $_lineColor,$_fillColor)
+
+function @rotatedTriangleUnit($_screen:screen,$_x:number,$_y:number,$_angleUnit:number,$_height:number,$_width:number,$_lineColor:number,$_fillColor:number)
+	var $_angle = $_angleUnit * 2pi
+	@rotatedTriangleRad($_screen,$_x,$_y,$_angle,$_height,$_width,$_lineColor,$_fillColor)
+
+function @rotatedTriangleDeg($_screen:screen,$_x:number,$_y:number,$_angleDeg:number,$_height:number,$_width:number,$_lineColor:number,$_fillColor:number)
+	var $_angle = ($_angleDeg/360) * 2pi
+	@rotatedTriangleRad($_screen,$_x,$_y,$_angle,$_height,$_width,$_lineColor,$_fillColor)
+	
+function @rotatedTriangle_example($_screen:screen)
+	@rotatedTriangleDeg($_screen,100,50,   45,  50,5,blue,green)
+	@rotatedTriangleUnit($_screen,100,100, 1/8,  50,5,blue,yellow)
+	@rotatedTriangleRad($_screen,100,150,  pi/4,  50,5,blue,red)
+
 function @drawBattery($_screen:screen, $charge:number, $X:number, $Y:number, $W:number, $H:number, $text:text)
 	$_screen.draw_rect($X-3,$Y+4,$X+1,$Y+$H-4,white,gray) ; nub
 	$_screen.draw_rect($X,$Y,$X+$W,$Y+$H,white,black) ; main battery body
