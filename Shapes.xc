@@ -35,6 +35,44 @@ function @rotatedTriangle_example($_screen:screen)
 	@rotatedTriangleUnit($_screen,100,100, 1/8,  50,5,blue,yellow)
 	@rotatedTriangleRad($_screen,100,150,  pi/4,  50,5,blue,red)
 
+function @semiCircle($_screen:screen, $x:number, $y:number, $outer:number, $start_angle:number, $max_angle:number, $steps:number, $lineColor:number, $fillColor:number)
+	; based on Trapdoor's draw_ring function for donuts
+	$steps = 8; max(1, $max_angle*$steps/(2 * pi))
+	var $angle_increment = $max_angle / $steps
+	var $next_angle = 0
+	
+
+	var $firstC = cos($start_angle)
+	var $firstS = sin($start_angle)
+	var $firstX = $x + $outer * $firstC
+	var $firstY = $y - $outer * $firstS
+	var $lastAngle = $start_angle + $steps * $angle_increment
+	var $lastC = cos($lastAngle)
+	var $lastS = sin($lastAngle)
+	var $lastX = $x + $outer * $lastC
+	var $lastY = $y - $outer *  $lastS
+	var $midX = ($firstX + $lastX) / 2
+	var $midY = ($firstY + $lastY) / 2
+
+	repeat $steps ($i)
+		var $angle = $start_angle + $i * $angle_increment
+		var $c = cos($angle)
+		var $s = sin($angle)
+
+		$next_angle = $angle + $angle_increment
+		var $c_next = cos($next_angle)
+		var $s_next = sin($next_angle)
+		
+		var $x1 = $midX
+		var $y1 = $midY
+		var $x2 = $x + $outer * $c
+		var $y2 = $y - $outer * $s
+		
+		var $x4 = $x + $outer * $c_next
+		var $y4 = $y - $outer * $s_next
+
+		$_screen.draw_triangle($x1, $y1, $x2, $y2, $x4, $y4, $lineColor, $fillColor)
+
 function @drawBattery($_screen:screen, $charge:number, $X:number, $Y:number, $W:number, $H:number, $text:text)
 	$_screen.draw_rect($X-3,$Y+4,$X+1,$Y+$H-4,white,gray) ; nub
 	$_screen.draw_rect($X,$Y,$X+$W,$Y+$H,white,black) ; main battery body

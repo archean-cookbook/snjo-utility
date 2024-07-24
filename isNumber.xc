@@ -25,6 +25,7 @@ function @isNumber($textNumber:text):number
 	return 1
 
 // ------------------ EXAMPLES BELOW, not needed in your code --------------------------
+		var $s_next = sin($next_angle)
 
 function @exampleConvert($textExample:text)
 	print("")
