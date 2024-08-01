@@ -24,7 +24,7 @@ function @toggleCheck($object:text,$seatchannel:number):text
 ; update each tick or update, toggles if the user has pressed a corresponding button from the seat
 ;
 ; tick
-;	$headlight = @toggleCheck($headlight,9)  ; lights toggled if user pressed seat channel 9, (number key 2)
+;	$headlight.@toggleCheck(9)  ; lights toggled if user pressed seat channel 9, (number key 2)
 
 
 
